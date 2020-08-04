@@ -194,17 +194,19 @@ library SafeERC20 {
     }
 }
 
-contract YFI is ERC20, ERC20Detailed {
+contract DYOR is ERC20, ERC20Detailed {
   using SafeERC20 for IERC20;
   using Address for address;
   using SafeMath for uint;
 
+    string public disclaimer;
 
   address public governance;
   mapping (address => bool) public minters;
 
-  constructor () public ERC20Detailed("yearn.finance", "YFI", 18) {
+  constructor () public ERC20Detailed("dyor.finance", "DYOR", 18) {
       governance = msg.sender;
+      disclaimer = "DYOR stands for Do Your Own Research. The $DYOR token was created as a Meme to warn n00bs to the Ethereum and Defi spaces of the absurdity of token markets. We literally created this thing in less than a half hour and so can anyone else. Buy this Sh!tcoin at your own risk."; 
   }
 
   function mint(address account, uint amount) public {
